@@ -1,3 +1,11 @@
+This configuration uses a VPC, and passes the VPC (by id) into the
+`example-app-deployment` module. A data source with a postcondition checks to
+ensure that DNS support is enabled on the VPC. However, if the consumer of the
+module doesn't enable DNS on the first apply, fixing the problem requires them
+to `-target` the VPC. They can't use the normal "fix the problem and re-apply"
+workflow, or even "destroy everything and start over" because the postcondition
+is checked during the plan phase of any apply/destroy commands.
+
 1. Init
 
 ```sh
