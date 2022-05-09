@@ -3,7 +3,7 @@ terraform {
   cloud {
     organization = "organization-name"
     workspaces {
-      name = "learn-terraform-console"
+      name = "learn-terraform-conditions"
     }
   }
 */
@@ -14,5 +14,5 @@ terraform {
     }
   }
 
-  required_version = "~> 1.1"
+  required_version = "~> 1.2.0"
 }

@@ -1,11 +1,5 @@
 provider "aws" {
   region = var.aws_region
-
-#   default_tags {
-#     tags = {
-#       HashiCorp-Learn = "aws-default-tags"
-#     }
-#   }
 }
 
 data "aws_availability_zones" "available" {
@@ -46,14 +40,12 @@ data "aws_ami" "amazon_linux" {
 module "app" {
   source = "./modules/example-app-deployment"
 
+  aws_instance_count = var.aws_instance_count
+
   aws_instance_type = var.aws_instance_type
   aws_ami_id = data.aws_ami.amazon_linux.id
   aws_vpc_id = module.vpc.vpc_id
 
   aws_public_subnet_ids = module.vpc.public_subnets
   aws_private_subnet_ids = module.vpc.private_subnets
-}
-
-output "public_subnets" {
-  value = module.vpc.public_subnets
 }
