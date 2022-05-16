@@ -43,9 +43,9 @@ module "app" {
   aws_instance_count = var.aws_instance_count
 
   aws_instance_type = var.aws_instance_type
-  aws_ami_id = data.aws_ami.amazon_linux.id
-  aws_vpc_id = module.vpc.vpc_id
+  aws_ami_id        = data.aws_ami.amazon_linux.id
+  aws_vpc_id        = module.vpc.vpc_id
 
-  aws_public_subnet_ids = module.vpc.public_subnets
+  aws_public_subnet_ids  = module.vpc.public_subnets
   aws_private_subnet_ids = module.vpc.private_subnets
 }

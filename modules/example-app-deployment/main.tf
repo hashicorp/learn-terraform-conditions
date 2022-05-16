@@ -1,7 +1,7 @@
 data "aws_subnet" "public" {
   count = length(var.aws_public_subnet_ids)
 
-  id    = var.aws_public_subnet_ids[count.index]
+  id = var.aws_public_subnet_ids[count.index]
 }
 
 module "app_security_group" {

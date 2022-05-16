@@ -6,18 +6,6 @@ variable "aws_region" {
   default     = "us-west-2"
 }
 
-variable "enable_dns" {
-  description = "Enable DNS support in VPC."
-  type        = bool
-  default     = false
-}
-
-variable "aws_instance_type" {
-  description = "EC2 instance type."
-  type        = string
-  default     = "t2.micro"
-}
-
 variable "aws_vpc_cidr" {
   description = "CIDR block for VPC."
   type        = string
@@ -36,8 +24,17 @@ variable "aws_public_subnet_cidrs" {
   default     = ["10.0.10.0/24", "10.0.11.0/24"]
 }
 
+variable "enable_dns" {
+  description = "Enable DNS support in VPC."
+  type        = bool
+}
+
 variable "aws_instance_count" {
   description = "Number of AWS instances to deploy."
   type        = number
-  default     = 3
+}
+
+variable "aws_instance_type" {
+  description = "EC2 instance type."
+  type        = string
 }
