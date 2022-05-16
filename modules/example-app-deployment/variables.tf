@@ -30,7 +30,7 @@ variable "aws_instance_count" {
   type        = number
 
   validation {
-    condition     = length(var.aws_instance_count) > 1
+    condition     = var.aws_instance_count > 1
     error_message = "This application requires at least two EC2 instances."
   }
 }
